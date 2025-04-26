@@ -2,6 +2,7 @@
   "scripts": {
     "build": "tsc && yarn parcel build static/index.html",
     "clear": "rm -rf build/ dist/",
+    "preserve": "yarn build",
     "serve": "http-server dist"
   },
   "dependencies": {
