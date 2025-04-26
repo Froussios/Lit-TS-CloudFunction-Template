@@ -1,5 +1,5 @@
 {
-  "version": "0.0.7",
+  "version": "0.0.8",
   "config": {
     "function_name": "todo-function-name",
     "project": "web-value-tracker",
@@ -11,7 +11,7 @@
     "clear": "rm -rf out static/.parcel-cache static/build static/dist",
     "preserve": "yarn build",
     "serve": "http-server function/static",
-    "gcp-build": "",
+    "gcp-build": "cat /dev/null",
     "predeploy": "yarn build && yarn version --patch",
     "deploy": "gcloud functions deploy ${npm_package_config_function_name} --region=${npm_package_config_region} --project=${npm_package_config_project} --source=out/ --trigger-http --runtime=nodejs22 --memory=256Mi --gen2 --allow-unauthenticated"
   },
