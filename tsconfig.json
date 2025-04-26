@@ -11,5 +11,6 @@
     "types": ["node"],
     "target": "ESNext",
     "resolveJsonModule": true
-  }
+  },
+  "exclude": ["./static"]
 }
