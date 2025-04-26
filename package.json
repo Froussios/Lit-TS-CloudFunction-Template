@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "build": "tsc && yarn parcel build static/index.html",
+    "clear": "rm -rf build/ dist/",
+    "serve": "http-server dist"
+  },
+  "dependencies": {
+    "@material/web": "^1.0.0-pre.15",
+    "lit": "^2.7.6"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "parcel": "^2.9.3",
+    "typescript": "^5.1.6"
+  }
+}
