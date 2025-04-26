@@ -1,5 +1,5 @@
 {
-  "version": "0.0.11",
+  "version": "0.0.12",
   "config": {
     "function_name": "todo-function-name",
     "project": "web-value-tracker",
@@ -13,7 +13,8 @@
     "serve": "http-server function/static",
     "gcp-build": "cat /dev/null",
     "predeploy": "yarn build && yarn version --patch",
-    "deploy": "gcloud functions deploy ${npm_package_config_function_name} --region=${npm_package_config_region} --project=${npm_package_config_project} --source=out/ --trigger-http --runtime=nodejs22 --memory=256Mi --gen2 --allow-unauthenticated"
+    "deploy": "gcloud functions deploy ${npm_package_config_function_name} --region=${npm_package_config_region} --project=${npm_package_config_project} --source=out/ --trigger-http --runtime=nodejs22 --memory=256Mi --gen2 --allow-unauthenticated",
+    "postdeploy": "https://australia-southeast1-${npm_package_config_project}.cloudfunctions.net/${npm_package_config_function_name}/static/index.html"
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^3.3.0",
