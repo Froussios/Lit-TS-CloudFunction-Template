@@ -1,5 +1,5 @@
 {
-  "version": "0.0.8",
+  "version": "0.0.9",
   "config": {
     "function_name": "todo-function-name",
     "project": "web-value-tracker",
@@ -18,11 +18,11 @@
   "dependencies": {
     "@google-cloud/functions-framework": "^3.3.0",
     "@material/web": "^2.3.0",
+    "express": "^5.1.0",
     "lit": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
-    "express": "^5.1.0",
     "http-server": "^14.1.1",
     "parcel": "^2.14.4",
     "typescript": "^5.8.3"
