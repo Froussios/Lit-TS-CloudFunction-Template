@@ -1,12 +1,12 @@
 {
-  "version": "0.0.10",
+  "version": "0.0.11",
   "config": {
     "function_name": "todo-function-name",
     "project": "web-value-tracker",
     "region": "australia-southeast1"
   },
   "scripts": {
-    "build": "yarn tsc && yarn tsc -p static && cd static && yarn parcel build static/index.html --dist-dir=../out/static",
+    "build": "yarn tsc && yarn tsc -p static && cd static && yarn parcel build static/index.html --dist-dir=../out/static  --public-url ./",
     "postbuild": "cp package.json out/ && cp yarn.lock out/",
     "clear": "rm -rf out static/.parcel-cache static/build static/dist",
     "preserve": "yarn build",
