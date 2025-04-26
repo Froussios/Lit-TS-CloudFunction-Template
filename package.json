@@ -6,13 +6,13 @@
     "region": "australia-southeast1"
   },
   "scripts": {
-    "build": "yarn tsc && yarn parcel build static/static/index.html --dist-dir=out/static",
-    "postbuild": "cp package.json out/ && cp package-lock.json out/",
-    "clear": "rm -rf function/out function/static static/.parcel-cache static/build static/dist",
+    "build": "yarn tsc && yarn tsc -p static && cd static && yarn parcel build static/index.html --dist-dir=../out/static",
+    "postbuild": "cp package.json out/ && cp yarn.lock out/",
+    "clear": "rm -rf out static/.parcel-cache static/build static/dist",
     "preserve": "yarn build",
     "serve": "http-server function/static",
     "gcp-build": "",
-    "predeploy": "yarn build && npm version patch",
+    "predeploy": "yarn build && yarn version --patch",
     "deploy": "gcloud functions deploy ${npm_package_config_function_name} --region=${npm_package_config_region} --project=${npm_package_config_project} --source=out/ --trigger-http --runtime=nodejs22 --memory=256Mi --gen2 --allow-unauthenticated"
   },
   "dependencies": {
