@@ -2,4 +2,6 @@
 **/node_modules
 **/build/
 **/dist/
+**/out/
 .DS_store
+function/static

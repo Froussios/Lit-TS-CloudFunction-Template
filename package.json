@@ -1,0 +1,32 @@
+{
+  "version": "0.0.1",
+  "config": {
+    "function_name": "todo-function-name",
+    "project": "web-value-tracker",
+    "region": "australia-southeast1"
+  },
+  "scripts": {
+    "build": "yarn parcel build static/static/index.html --dist-dir=function/static",
+    "clear": "rm -rf function/out function/static static/.parcel-cache static/build static/dist",
+    "preserve": "yarn build",
+    "serve": "http-server function/static",
+    "gcp-build": "",
+    "prebuild": "npm run clear && npm i",
+    "todo-build": "npx tsc",
+    "todo-postbuild": "cp package.json out/ && cp package-lock.json out/ && cp -r static out/",
+    "predeploy": "npm run build && npm version patch",
+    "deploy": "gcloud functions deploy ${npm_package_config_function_name} --region=${npm_package_config_region} --project=${npm_package_config_project} --source=out/ --trigger-http --runtime=nodejs22 --memory=256Mi --gen2 --allow-unauthenticated"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "@material/web": "^2.3.0",
+    "lit": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "express": "^5.1.0",
+    "http-server": "^14.1.1",
+    "parcel": "^2.14.4",
+    "typescript": "^5.8.3"
+  }
+}
