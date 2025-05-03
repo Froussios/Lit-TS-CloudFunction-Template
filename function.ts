@@ -20,7 +20,14 @@ app.get('/status', (req, res) => {
   });
 });
 
-app.use('/static', express.static(path.join(__dirname, 'static/')));
+app.use(['/static', '/', ''], express.static(path.join(__dirname, 'static/')));
 
-// Export the app as a Google Cloud Function
-functions.http(npm.config.function_name, app);
+if (process.argv.includes('--local')) {
+  const port = 8080;
+  app.listen(port, () => {
+    console.log(`Server is running locally on http://localhost:${port}`);
+  });
+} else {
+  // Export the app as a Google Cloud Function
+  functions.http(npm.config.function_name, app);
+}
